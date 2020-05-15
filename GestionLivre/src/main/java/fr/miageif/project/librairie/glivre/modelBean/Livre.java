@@ -1,14 +1,29 @@
 package fr.miageif.project.librairie.glivre.modelBean;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.*;
 
+@Entity
 public class Livre {
 
+    @Id
     private String isbn;
+
+    @Column(name = "auteur")
     private String auteur;
+
+    @Column(name = "titre")
     private String titre;
+
+    @Column(name = "editeur")
     private String editeur;
+
+    @Column(name = "edition")
     private int edition;
 
+    public Livre(){
+    }
     public Livre(String isbn, String auteur, String titre, String editeur, int edition) {
         this.isbn = isbn;
         this.auteur = auteur;
