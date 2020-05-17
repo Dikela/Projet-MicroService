@@ -22,8 +22,10 @@ public class Livre {
     @Column(name = "edition")
     private int edition;
 
-    public Livre(){
+    public Livre() {
+
     }
+
     public Livre(String isbn, String auteur, String titre, String editeur, int edition) {
         this.isbn = isbn;
         this.auteur = auteur;
@@ -74,7 +76,7 @@ public class Livre {
 
     @Override
     public String toString(){
-        return "Le livre " + this.isbn + " correspond à " + this.titre + "d"+ '\''
-                + this.auteur + " éditer par "+ this.editeur + "en "+this.edition;
+        return "Le livre " + this.isbn + " correspond à " + this.titre + " de "
+                + this.auteur + " édité par " + this.editeur + "en " + this.edition;
     }
 }

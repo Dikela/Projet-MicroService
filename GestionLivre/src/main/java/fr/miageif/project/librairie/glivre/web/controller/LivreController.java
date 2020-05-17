@@ -9,29 +9,24 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+// Contrôleur Rest qui permet d'indiquer les requêtes  que nous définissons. Ainsi, chaque réponse va renvoyer une réponse JSON à àl'utilisateur.
 @RestController
 public class LivreController {
     @Autowired
     private LivreJpa livreJpa;
 
-    /**
-     * Affiche tous les livres contenus dans la base de données
-     * */
+    // Affiche tous les livres contenus dans la base de données
     @GetMapping(value = "Livres")
     public List<Livre> listeLivres(){
         return livreJpa.findAll();
     }
-    /**
-     *
-     *
-     * @return*/
+
     @GetMapping(value = "/Livres/{isbn}")
     public Livre afficherUnLivre(@PathVariable String isbn){
+        System.out.println(livreJpa.findByIsbn(isbn));
         return livreJpa.findByIsbn(isbn);
     }
 
-    /*
-    **/
     @PostMapping(value = "/Livres")
     public ResponseEntity<Void> ajouterLivre(@RequestBody Livre livre){
 
