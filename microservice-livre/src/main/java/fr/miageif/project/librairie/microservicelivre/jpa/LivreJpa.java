@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LivreJpa extends JpaRepository<Livre, String>, CrudRepository<Livre, String> {
     Livre findByIsbn(String isbn);// redefinir la methode findById de la doc de JPA
-    //void deleteByIsbn(String isbn);
 }

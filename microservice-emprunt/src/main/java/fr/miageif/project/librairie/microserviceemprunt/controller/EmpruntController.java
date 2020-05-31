@@ -77,23 +77,16 @@ public class EmpruntController {
     public EmpruntLivre cherhcerUnEmprunt(@PathVariable int id){
         return empruntJpa.findById(id);
     }
-
+    //Permets de créer un nouvel emprunt
     @PostMapping("/Emprunts/")
     public ResponseEntity<EmpruntLivre> ajouterEmprunt(@RequestBody EmpruntLivre emprunt){
         EmpruntLivre emprunt1 = empruntJpa.save(emprunt);
 
         if (emprunt1 == null)
             return ResponseEntity.noContent().build();
-
-        /*URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(emprunt.getId())
-                .toUri();
-        return ResponseEntity.created(location).build();*/
         return new ResponseEntity<EmpruntLivre>(emprunt, HttpStatus.CREATED);
     }
-
+    //METS à jour les info d'un emprunt
     @PutMapping(value = "/Emprunts")
     public void updateEmprunt(@RequestBody EmpruntLivre emprunt){
         empruntJpa.save(emprunt);

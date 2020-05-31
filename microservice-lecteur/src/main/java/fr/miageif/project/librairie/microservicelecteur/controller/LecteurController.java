@@ -22,12 +22,13 @@ public class LecteurController {
         return lecteurJpa.findAll();
     }
 
+    // recupère un lecteur par son ID
     @GetMapping(value = "/Lecteurs/{id}")
     public Lecteur afficherUnLecteur(@PathVariable int id){
         System.out.println(lecteurJpa.findById(id));
         return lecteurJpa.findById(id);
     }
-
+    // Permet de créer un lecteur
     @PostMapping(value = "/Lecteurs")
     public ResponseEntity<Void> ajouterLecteur(@RequestBody Lecteur lecteur) {
         Lecteur lecteur1 = lecteurJpa.save(lecteur);
@@ -41,12 +42,13 @@ public class LecteurController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
-
+    //Supprime une lecteur par son ID
     @DeleteMapping(value = "/Lecteurs/{id}")
     public void retirerLecteur(@PathVariable int id){
         lecteurJpa.delete(lecteurJpa.findById(id));
     }
 
+    //Mets à jour les informations d'un lecteur
     @PutMapping(value = "/Lecteurs")
     public void updateLecteur(@RequestBody Lecteur lecteur){
         lecteurJpa.save(lecteur);

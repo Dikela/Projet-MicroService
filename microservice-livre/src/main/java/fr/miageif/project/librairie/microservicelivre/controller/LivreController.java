@@ -21,12 +21,14 @@ public class LivreController {
         return livreJpa.findAll();
     }
 
+    //Affiche un livre pare son ID
     @GetMapping(value = "/Livres/{isbn}")
     public Livre afficherUnLivre(@PathVariable String isbn){
         System.out.println(livreJpa.findByIsbn(isbn));
         return livreJpa.findByIsbn(isbn);
     }
 
+    //Rajoute un livre
     @PostMapping(value = "/Livres")
     public ResponseEntity<Void> ajouterLivre(@RequestBody Livre livre){
 
@@ -44,11 +46,13 @@ public class LivreController {
         return ResponseEntity.created(location).build();
     }
 
+    // Supprime un livre
     @DeleteMapping(value = "/Livres/{isbn}")
     public void retirerLivre(@PathVariable String isbn){
         livreJpa.delete(livreJpa.findByIsbn(isbn));
     }
 
+    //Mets à jour un livre
     @PutMapping(value = "/Livres")
     public void updateLivre(@RequestBody Livre livre){
         livreJpa.save(livre);
