@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="client" />
+        <module name="microservice-emprunt" />
+        <module name="microservice-lecteur" />
+        <module name="microservice-livre" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client" target="14" />
+      <module name="microservice-emprunt" target="14" />
+      <module name="microservice-lecteur" target="14" />
+      <module name="microservice-livre" target="14" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="client" options="-parameters" />
+      <module name="microservice-emprunt" options="-parameters" />
+      <module name="microservice-lecteur" options="-parameters" />
+      <module name="microservice-livre" options="-parameters" />
+    </option>
+  </component>
+</project>

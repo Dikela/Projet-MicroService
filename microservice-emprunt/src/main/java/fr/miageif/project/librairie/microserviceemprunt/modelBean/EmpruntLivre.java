@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class EmpruntLivre {
     @Id
-    @GeneratedValue
     public Integer id;
 
     @Column(name = "ISBN")

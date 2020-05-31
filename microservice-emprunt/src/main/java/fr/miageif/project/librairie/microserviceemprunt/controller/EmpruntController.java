@@ -3,6 +3,7 @@ package fr.miageif.project.librairie.microserviceemprunt.controller;
 import fr.miageif.project.librairie.microserviceemprunt.jpa.EmpruntJpa;
 import fr.miageif.project.librairie.microserviceemprunt.modelBean.EmpruntLivre;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -78,17 +79,19 @@ public class EmpruntController {
     }
 
     @PostMapping("/Emprunts/")
-    public ResponseEntity<Void> ajouterLecteur(@RequestBody EmpruntLivre emprunt){
+    public ResponseEntity<EmpruntLivre> ajouterEmprunt(@RequestBody EmpruntLivre emprunt){
         EmpruntLivre emprunt1 = empruntJpa.save(emprunt);
+
         if (emprunt1 == null)
             return ResponseEntity.noContent().build();
 
-        URI location = ServletUriComponentsBuilder
+        /*URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(emprunt.getId())
                 .toUri();
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).build();*/
+        return new ResponseEntity<EmpruntLivre>(emprunt, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/Emprunts")

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma bibliotheque de livre </title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        i {font-size: 50px;}
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: lightsteelblue;
+            color: black;
+            text-align: center;
+        }
+
+        .hero-image {
+            background-color: azure;
+            height: 500px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="jumbotron text-center">
+    <h1><b>Bienvenue dans notre bibliothèque</b></h1>
+</div>
+<div class="container centered">
+    <!--/row-->
+    <div class="row mt">
+
+        <!--/col-md-4-->
+        <div class="col-sm-4">
+            <a th:href="@{|/Livres/|}">
+                <i class="glyphicon glyphicon-book"></i>
+                <h3><b>Gestion de Livre</b></h3>
+            </a>
+        </div>
+
+        <div class="col-sm-4">
+            <a th:href="@{|/Lecteurs/|}">
+                <i class="glyphicon glyphicon-user"></i>
+                <h3><b>Gestion de Lecteurs</b></h3>
+            </a>
+        </div>
+        <!--/col-md-4-->
+        <div class="col-sm-4">
+            <a th:href="@{|/Emprunts/|}">
+                <i class="glyphicon glyphicon-copy"></i>
+                <h3><b>Gestion de Prêt</b></h3>
+            </a>
+        </div>
+        <!--/col-md-4-->
+    </div>
+    <!--/row-->
+</div>
+<div class="hero-image">
+    <div class="container">
+        <H1 class="text-center"> Le Lecteur demandé </H1>
+        <div class="row text-center">
+            <div class="col-md-4 mx-auto mt-5 text-center">
+                <p th:text="${lecteur.nom}"></p>
+                <p th:text="${lecteur.prenom}" class="font-weigt-bold"></p>
+                <p th:text="${lecteur.genre}"></p>
+                <p th:text="${lecteur.date_naissance}"></p>
+                <p th:text="${lecteur.adresse}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+<div class="footer">
+    <div class="container">
+        <p>
+            &copy; Copyrights <strong>Bibliothèque</strong>. Tous droits reservés
+        </p>
+        <div class="credits">
+            Créee par Michel N'GUYEN AND Laye Kemo DIARSO <a href="https://github.com/Dikela/Projet-MicroService">Depôt Github</a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</body>
+</html>
