@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.miageif.project.librairie.microservicelivre.MicroserviceLivreApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.981 s - in fr.miageif.project.librairie.microservicelivre.MicroserviceLivreApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.502 s - in fr.miageif.project.librairie.microservicelivre.MicroserviceLivreApplicationTests

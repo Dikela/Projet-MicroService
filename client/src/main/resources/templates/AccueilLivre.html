@@ -84,7 +84,7 @@
 <div>
 <div class="hero-image">
     <div class="hero-text">
-        <H1> Les lecteurs abonnés à la bibliothèque </H1><br/>
+        <H1> Les livres disponibles dans notre bibliothèque </H1><br/>
         <div class="row">
             <div th:each="livre : ${livres}" class="col-md-4 my-1">
                 <a th:href="@{|/details-livre/${livre.isbn}|}">

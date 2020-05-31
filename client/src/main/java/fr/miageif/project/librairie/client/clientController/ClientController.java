@@ -84,10 +84,15 @@ public class ClientController {
         return "AcceuilEmprunt";
     }
 
+    /**
+     * Controller qui permet de valider un emprunt et creer un nouvel
+     * @param id, correspond à l'id du lecteur
+     * @param isbn l'identifiant du livre
+     * @param model model pour gérer les données dans le script html
+     * @return la donnée à exploiter en html
+     */
     @RequestMapping("/details-lecteurEmprunt/{id}/{isbn}")
     public String ValidePretLivre(@PathVariable int id, @PathVariable String isbn, Model model){
-        List<LivreBean> livres =  clientProxy.listeLivres();
-
         List<EmpruntBean> emprunts =  empruntProxy.listeEmprunt();
         int size = emprunts.size();
         List<Integer> idliste = new ArrayList<Integer>();
@@ -124,7 +129,6 @@ public class ClientController {
         return "ValiderPret";
     }
 
-    //LivresEncoursEmprunt
     @RequestMapping(value = "/Emprunts/EnCours")
     public String EmpruntEncours(Model model){
         List<EmpruntBean> emprunts =  empruntProxy.livresEnCoursEmprunt();
@@ -146,11 +150,24 @@ public class ClientController {
         return "FicheEmpruntEncours";
     }
 
-    ///retours/Emprunt/${emprunt.id}
-
     @RequestMapping("/retours/Emprunt/{id}")
     public String retourLivre(@PathVariable int id, Model model) {
         empruntProxy.retirerUnLivreEmprunter(id);
         return "RetournerLivre";
     }
+
+    @RequestMapping(value = "/Emprunts/lecteurs")
+    public String EmpruntLecteurs(Model model){
+        List<EmpruntBean> emprunts =  empruntProxy.listeEmprunt();
+        model.addAttribute("emprunts", emprunts);
+        return "RechercherUnLecteur";
+    }
+
+    @RequestMapping("/details-lecteurEmprunt/{lecteur}")
+    public String ficheLecteurEmprunt(@PathVariable String lecteur, Model model) {
+        List<EmpruntBean> emprunts =  empruntProxy.livreEmprunterParLecteur(lecteur);
+        model.addAttribute("emprunts", emprunts);
+        return "LivreEmprunterParUnLecteur";
+    }
+
 }

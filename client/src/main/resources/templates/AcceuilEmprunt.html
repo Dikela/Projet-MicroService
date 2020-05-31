@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Bibliothèque</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +51,10 @@
         .encours{
             position: relative;
             left: 150px;
+        }
+        .encours1{
+            position: relative;
+            left: 705px;
         }
     </style>
 
@@ -101,6 +105,9 @@
                 </div>
                 <div class="encours">
                     <a th:href="@{|/Emprunts/EnCours/|}" class="font-weight-bold">Emprunts en cours</a>
+                </div>
+                <div class="encours1">
+                    <a th:href="@{|/Emprunts/lecteurs/|}" class="font-weight-bold">Trouver Les livres empruntés par un lecteur</a>
                 </div>
             </div>
         </div>

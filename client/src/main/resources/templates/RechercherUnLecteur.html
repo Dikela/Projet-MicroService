@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma bibliotheque de livre </title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+        i {font-size: 50px;}
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: lightsteelblue;
+            color: black;
+            text-align: center;
+        }
+
+        .hero-image {
+            background-color: azure;
+            height: 500px;
+
+        }
+        div.menu1 {
+            position: relative;
+            left: 150px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="jumbotron text-center">
+    <h1><b>Bienvenue dans notre bibliothèque</b></h1>
+</div>
+<div class="menu1">
+    <div class="container centered">
+        <!--/row-->
+        <div class="row mt">
+
+            <!--/col-md-4-->
+            <div class="col-sm-4">
+                <a th:href="@{|/Livres/|}">
+                    <i class="glyphicon glyphicon-book"></i>
+                    <h3><b>Gestion de Livre</b></h3>
+                </a>
+            </div>
+
+            <div class="col-sm-4">
+                <a th:href="@{|/Lecteurs/|}">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h3><b>Gestion de Lecteurs</b></h3>
+                </a>
+            </div>
+            <!--/col-md-4-->
+            <div class="col-sm-4">
+                <a th:href="@{|/Emprunts/|}">
+                    <i class="glyphicon glyphicon-copy"></i>
+                    <h3><b>Gestion de Prêt</b></h3>
+                </a>
+            </div>
+            <!--/col-md-4-->
+        </div>
+        <!--/row-->
+    </div>
+</div>
+<!-- Formulaire  -->
+<div class="hero-image">
+    <div class="container">
+        <H1 class="text-center"> Vous êtes à la recherche des emprunts d'un lecteur? CLiquez sur son
+        id afin d'accéder à ses informations</H1>
+        <div class="row text-center">
+            <div>
+                <h2>Liste des Lecteurs<br/></h2>
+                <h5> Veuillez cliquer sur selectionner l'id du lecteur</h5>
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <div th:each="emprunt : ${emprunts}" class="col-md-4 my-1">
+                            <a th:href="@{|/details-lecteurEmprunt/${emprunt.lecteur}|}">
+                                <p th:text="${emprunt.lecteur}"></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fin Formulaire  -->
+<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+<div class="footer">
+    <div class="container">
+        <p>
+            &copy; Copyrights <strong>Bibliothèque</strong>. Tous droits reservés
+        </p>
+        <div class="credits">
+            Créee par Michel N'GUYEN AND Laye Kemo DIARSO <a href="https://github.com/Dikela/Projet-MicroService">Depôt Github</a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</body>
+</html>

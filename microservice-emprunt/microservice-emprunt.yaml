@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-livre
+spec:
+  selector:
+    matchLabels:
+      app: microservice-livre
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: microservice-livre
+    spec:
+      containers:
+        - name: microservice-livre
+          image: microservice-livre.jar:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081

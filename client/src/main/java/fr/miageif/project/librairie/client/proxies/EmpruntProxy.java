@@ -32,4 +32,7 @@ public interface EmpruntProxy {
 
     @DeleteMapping(value = "/Emprunts/{id}")
     void retirerUnLivreEmprunter(@PathVariable("id") int id);
+
+    @GetMapping(value = "/Emprunts/lecteur/{lecteur}")
+    List<EmpruntBean> livreEmprunterParLecteur(@PathVariable("lecteur") String lecteur);
 }
