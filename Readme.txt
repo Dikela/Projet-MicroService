@@ -66,6 +66,11 @@ Le projet est composé de différentes partie à savoir :
     a) Installer minikube sur votre machine. Prenez la version la plus récente et compatible pour votre os. Avant cela assurer vous que vous avez une machine virtuelle installée
         sur votre ordinateur (dans notre cas on a utilisé virtualbox).
     b) installer kubectl ( En fonction de votre os)
+    c) demarer " minikube " en tapant :
+
+        > minikub start --driver=virtualbox
+        >
+
     c) Déployer chaque images docker générés en tapant les commandes suivantes:
 
         Placer vous dans le repertoire du microservice à déployer: puis taper:
@@ -89,9 +94,13 @@ Le projet est composé de différentes partie à savoir :
 
             $> kubectl expose deployment service-deployé --type=NodePort
 
-            ( service-deployé correspond à l'application déployé)
+            ( service-deployé correspond à l'application déployé, visible dans le fichier de configuration .yaml)
+
+            A noté que pour notre application, la création du service client est déja indiqué dans son fichier de configuration .yaml.
+            Pour les autres microservices  il faudra créer les services correspondants avec la commande indiquée ci-haut.
 
         4 * lancer le service : prenons par exemple notre service client
+            Après sont deploiement, on peut donc le lancer:
 
             $> minikube service client
 
